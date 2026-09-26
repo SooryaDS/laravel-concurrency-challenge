@@ -47,7 +47,7 @@ class TransferController extends Controller
                 'from' => $fromAccount,
                 'to' => $toAccount,
             ];
-        });
+        }, 5);
 
         if (!$result) {
             return response()->json([
