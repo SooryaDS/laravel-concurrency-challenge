@@ -8,6 +8,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\TransferController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LoginCodeController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\CouponController;
 
 
 Route::get('/tickets/{ticket}', [TicketController::class, 'show']);
@@ -19,3 +21,6 @@ Route::post('/transfer', [TransferController::class, 'transfer']);
 Route::post('/invoice', [InvoiceController::class, 'generate']);
 Route::post('/login-code', [LoginCodeController::class, 'sendCode'])
     ->middleware('throttle:login-code');
+Route::get('/documents/{document}/download', [DocumentController::class, 'download'])
+    ->middleware('auth:sanctum');
+Route::post('/coupons/{coupon}/redeem', [CouponController::class, 'redeem']);
