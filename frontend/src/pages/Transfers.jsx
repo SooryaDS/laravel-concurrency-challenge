@@ -29,6 +29,7 @@ function Transfers() {
             });
 
             setResult(response.data);
+
             setMessage(
                 response.data.message || "Transfer successful."
             );
@@ -161,6 +162,44 @@ function Transfers() {
                     {error}
                 </div>
             )}
+
+            <div className="test-panel">
+                <h3>Deadlock Handling</h3>
+
+                <p>
+                    A database deadlock can occur when two transactions
+                    attempt to lock the same accounts in different orders.
+                </p>
+
+                <br />
+
+                <p>
+                    For example, one transaction could lock Account 1
+                    and then wait for Account 2, while another transaction
+                    locks Account 2 and waits for Account 1.
+                </p>
+
+                <br />
+
+                <p>
+                    This implementation prevents that circular locking
+                    pattern by always locking accounts in ascending ID
+                    order using <strong>lockForUpdate()</strong>.
+                </p>
+
+                <br />
+
+                <p>
+                    The database transaction is also configured to retry
+                    up to <strong>5 times</strong> if a deadlock occurs.
+                </p>
+
+                <br />
+
+                <strong>
+                    Lock order: Account ID → Account ID
+                </strong>
+            </div>
         </Layout>
     );
 }

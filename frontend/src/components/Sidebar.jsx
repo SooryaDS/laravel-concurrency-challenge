@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Sidebar() {
+    const navigate = useNavigate();
+
     const links = [
         { name: "Dashboard", path: "/" },
         { name: "Tickets", path: "/tickets" },
@@ -13,6 +15,11 @@ function Sidebar() {
         { name: "Documents", path: "/documents" },
         { name: "Coupons", path: "/coupons" },
     ];
+
+    const logout = () => {
+        localStorage.removeItem("auth_token");
+        navigate("/login");
+    };
 
     return (
         <aside className="sidebar">
@@ -33,6 +40,14 @@ function Sidebar() {
                         {link.name}
                     </NavLink>
                 ))}
+
+                <button
+                    type="button"
+                    className="nav-link logout-button"
+                    onClick={logout}
+                >
+                    Logout
+                </button>
             </nav>
         </aside>
     );

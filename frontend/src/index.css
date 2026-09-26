@@ -298,3 +298,16 @@ button:disabled {
     padding: 12px 16px;
     margin-top: 16px;
 }
+
+.logout-button {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+}
+
+.logout-button:hover {
+    background: #1e293b;
+}

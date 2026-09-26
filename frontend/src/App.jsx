@@ -10,6 +10,7 @@ import Invoices from "./pages/Invoices";
 import LoginCode from "./pages/LoginCode";
 import Documents from "./pages/Documents";
 import Coupons from "./pages/Coupons";
+import Login from "./pages/Login";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/login-code" element={<LoginCode />} />
                 <Route path="/documents" element={<Documents />} />
                 <Route path="/coupons" element={<Coupons />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
         </BrowserRouter>
     );

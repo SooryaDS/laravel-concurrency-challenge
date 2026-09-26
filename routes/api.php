@@ -10,6 +10,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LoginCodeController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\AuthController;
 
 
 Route::get('/tickets/{ticket}', [TicketController::class, 'show']);
@@ -24,3 +25,4 @@ Route::post('/login-code', [LoginCodeController::class, 'sendCode'])
 Route::get('/documents/{document}/download', [DocumentController::class, 'download'])
     ->middleware('auth:sanctum');
 Route::post('/coupons/{coupon}/redeem', [CouponController::class, 'redeem']);
+Route::post('/login', [AuthController::class, 'login']);
